@@ -22,7 +22,7 @@ export default function Sidebar() {
           src={require("../../img/side.png")}
           alt=""
         />
-        <p>
+        <p className='sideDesc'>
           A portal where the doctors, dietitians, covid recovered patients would
           post various details about Covid-19 virus. The precautionary measures,
           experiences and other information can be shared.
