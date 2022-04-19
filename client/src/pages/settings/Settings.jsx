@@ -6,13 +6,14 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 
 export default function Settings() {
+  const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState(user.password);
   const [success, setSuccess] = useState(false);
 
-  const { user, dispatch } = useContext(Context);
+  
   const PF = "http://localhost:3000/images/"
 
   const handleSubmit = async (e) => {

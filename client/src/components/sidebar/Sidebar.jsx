@@ -17,14 +17,15 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT ME</span>
-        <img
-          src="https://i.pinimg.com/236x/1e/3f/58/1e3f587572a7a7b20bbf1828595a1786--holiday-party-themes-holiday-gift-guide.jpg"
+        <span className="sidebarTitle">ABOUT US</span>
+        <img className="sideImage"
+          src={require("../../img/side.png")}
           alt=""
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+          A portal where the doctors, dietitians, covid recovered patients would
+          post various details about Covid-19 virus. The precautionary measures,
+          experiences and other information can be shared.
         </p>
       </div>
       <div className="sidebarItem">

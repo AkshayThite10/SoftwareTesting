@@ -2,7 +2,7 @@
   flex: 3;
   margin: 20px;
   padding-bottom: 30px;
-  background-color: #fdfbfb;
+  background-color: #B0C4DE;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -61,4 +61,8 @@
     font-size: 16px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+.sideImage{
+  width: 50%;
 }
