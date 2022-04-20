@@ -26,7 +26,7 @@ export default function Register() {
   };
   return (
     <div className="register">
-      <span className="registerTitle">Register</span>
+      <span className="registerTitle">CovidCare Register</span>
       <form className="registerForm" onSubmit={handleSubmit}>
         <label>Username</label>
         <input

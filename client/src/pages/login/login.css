@@ -5,10 +5,10 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
+      rgba(237, 233, 233, 0.308),
+      rgba(255, 255, 255, 0.205)
     ),
-    url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    url("../../img/doctor.webp");
   background-size: cover;
 }
 
@@ -35,11 +35,11 @@
 .loginButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: lightcoral;
   border: none;
   color: white;
   border-radius: 10px;
   padding: 10px;
+  background-color: red;
 }
 
 .loginButton:disabled{
@@ -57,4 +57,11 @@
   padding: 10px;
   color: white;
   border-radius: 10px;
+  width: 7.5%;
+  height: 4%;
+}
+
+.loginInput:focus{
+  background-color: #E0FFFF;
+  outline: none;
 }

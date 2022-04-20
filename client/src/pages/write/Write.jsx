@@ -47,13 +47,14 @@ export default function Write() {
   };
   return (
     <div className="write">
+      <h2 className="PostTitle">Post!</h2>
       {file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
-            <i className="writeIcon fas fa-plus"></i>
+            <i class="writeIcon fa fa-upload"></i>
           </label>
           <input
             type="file"
@@ -73,18 +74,19 @@ export default function Write() {
         <div> <input
             type="text"
             placeholder="Category"
-            className="writeInput"
+            className="writeInput catText"
             autoFocus={true}
             onChange={e=>setCat(e.target.value)}
           />
         </div>
 
 
+
         <div className="writeFormGroup">
           <textarea
-            placeholder="Tell your story..."
+            placeholder="Share your experience..."
             type="text"
-            className="writeInput writeText"
+            className="writeInput writeText descText"
             onChange={e=>setDesc(e.target.value)}
           ></textarea>
         </div>
