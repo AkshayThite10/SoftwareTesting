@@ -10,11 +10,13 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:3000/images/";
+  const PF = "http://localhost:8082/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [comments, setComment] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [commentMode, setCommentMode] = useState(false);
 
   useEffect(() => {
     const getPost = async () => {
@@ -22,6 +24,7 @@ export default function SinglePost() {
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
+      setComment(res.data.comments);
     };
     getPost();
   }, [path]);
@@ -46,6 +49,18 @@ export default function SinglePost() {
     } catch (err) {}
   };
 
+  const handleComment = async () => {
+    try {
+      await axios.put(`/posts/${post._id}`, {
+        username: user.username,
+        title,
+        desc,
+        comments,
+      });
+      setCommentMode(false)
+    } catch (err) {}
+  };
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -63,7 +78,7 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">
             {title}
-            {post.username === user.username && (
+            {((post.username === user.username)|| ("admin"===user.username) )&&(
               <div className="singlePostEdit">
                 <i
                   className="singlePostIcon far fa-edit"
@@ -77,6 +92,7 @@ export default function SinglePost() {
             )}
           </h1>
         )}
+
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
             Author:
@@ -101,6 +117,33 @@ export default function SinglePost() {
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
           </button>
+        )}
+
+            <h1 className="singlePostTitle">
+
+
+                  <div className="singlePostEdit">
+                    <i
+                        className="singlePostIcon far fa-edit"
+                        onClick={() => setCommentMode(true)}
+                    ></i>
+                  </div>
+
+            </h1>
+
+        {commentMode ? (
+            <textarea
+                className="singlePostDescInput"
+                value={comments}
+                onChange={(e) => setComment(e.target.value)}
+            />
+        ) : (
+            <p className="singlePostDesc">{comments}</p>
+        )}
+        {commentMode && (
+            <button className="singlePostButton" onClick={handleComment}>
+              comment
+            </button>
         )}
       </div>
     </div>
