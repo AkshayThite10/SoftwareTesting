@@ -121,10 +121,9 @@ export default function SinglePost() {
 
             <h1 className="singlePostTitle">
 
-
                   <div className="singlePostEdit">
                     <i
-                        className="singlePostIcon far fa-edit"
+                        className="commentIcon far fa-solid fa-comments icon-3x"
                         onClick={() => setCommentMode(true)}
                     ></i>
                   </div>
